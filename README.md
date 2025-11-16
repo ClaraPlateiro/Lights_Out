@@ -38,7 +38,6 @@ No hay dependencias externas adicionales.
 Desde la carpeta del proyecto (la misma que contiene los archivos `.py`), ejecutar:
 
 ```powershell
-cd "C:\Users\cplat\OneDrive\Documentos\Ing. Informatica\6to Semestre\Algebra\Lights_Out"
 py front_lights_out.py
 # o
 python front_lights_out.py
