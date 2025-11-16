@@ -1,0 +1,118 @@
+Lights Out en 𝔽₂ — Código del proyecto
+=======================================
+
+Este repositorio contiene la implementación en Python del modelo lineal del juego **Lights Out** que se describe en el informe:
+
+*   Un **solver algebraico** en 𝔽₂.
+    
+*   Una **interfaz gráfica** con dos tableros (juego manual y solución del modelo).
+    
+*   Un **script de experimentos masivos** para calcular rango, nulidad y proporción de tableros resolubles.
+    
+
+Requisitos
+----------
+
+*   Python 3.x
+    
+*   tkinter instalado (viene por defecto en la mayoría de instalaciones de escritorio de Python).
+    
+
+No se usan librerías externas.
+
+Archivos principales
+--------------------
+
+*   resuelve\_lights\_out.pyImplementa la función resuelve\_lights\_out(tablero) -> List\[int\] que resuelve Lights Out usando Gauss en 𝔽₂ (solo sumas de filas).También se puede ejecutar desde consola para probar con un tablero ingresado a mano.
+    
+*   front\_lights\_out.pyInterfaz gráfica en Tkinter con **dos tableros**:
+    
+    *   Izquierdo: tablero de juego manual.
+        
+    *   Derecho: tablero modelo donde se calcula y anima la solución.
+        
+*   experimentos\_stats.pyEjecuta ensayos masivos para tamaños n = 2, …, 10, calcula **rango**, **nulidad** y **proporción muestral** de tableros con solución.
+    
+
+Cómo ejecutar cada programa
+---------------------------
+
+### 1\. Solver por consola (resuelve\_lights\_out.py)
+
+Desde la carpeta del proyecto:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   python resuelve_lights_out.py   `
+
+Luego el programa pide:
+
+1.  El tamaño n.
+    
+2.  Las n filas del tablero, con 0 y 1 separados por espacio.
+    
+
+Ejemplo:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   3  0 1 0  1 1 0  0 0 1   `
+
+El script muestra:
+
+*   El vector solución x.
+    
+*   La matriz de presiones.
+    
+*   Las coordenadas a presionar.
+    
+*   El tablero final para verificar que quedó todo en 0.
+    
+
+### 2\. Interfaz gráfica con dos tableros (front\_lights\_out.py)
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   python front_lights_out.py   `
+
+Flujo de uso:
+
+1.  Elegir n en “Tamaño n”.
+    
+2.  Definir el tablero inicial:
+    
+    *   manualmente haciendo clic, o
+        
+    *   con el botón **Aleatorio**.
+        
+3.  Pulsar **Nuevo tablero** si querés limpiar todo.
+    
+4.  Pulsar **Jugar**:
+    
+    *   el tablero izquierdo sirve para jugar manualmente (clics reales),
+        
+    *   el tablero derecho muestra la misma configuración para el modelo.
+        
+5.  Pulsar **Calcular solución** para que el tablero derecho marque las casillas a presionar.
+    
+6.  Pulsar **Aplicar solución** para ver la animación de cómo el modelo resuelve el tablero.
+    
+
+### 3\. Experimentos masivos (experimentos\_stats.py)
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   python experimentos_stats.py   `
+
+El script:
+
+*   Recorre n = 2, …, 10.
+    
+*   Para cada n:
+    
+    *   construye la matriz A,
+        
+    *   calcula rango y nulidad en 𝔽₂,
+        
+    *   genera M = 10000 tableros aleatorios (semilla fija SEED = 12345),
+        
+    *   intenta resolver cada uno con resuelve\_lights\_out.
+        
+*   Imprime una tabla con:
+    
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   n | rango | nulidad | resueltos | no resueltos | proporción muestral   `
+
+Estos resultados son los que se comentan en la sección de Resultados y Discusión del informe.
