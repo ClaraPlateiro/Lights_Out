@@ -11,21 +11,6 @@ Implementación en Python del problema "Lights Out" sobre el cuerpo 𝔽₂.
 **Requisitos**
 
 - Python 3.7+ (recomendado)
-- `tkinter` (normalmente incluido en instalaciones estándar de Python en Windows/OSX)
-
-# Lights Out (𝔽₂)
-
-Implementación en Python del problema "Lights Out" sobre el cuerpo 𝔽₂.
-
-- Un solver algebraico (`resuelve_lights_out.py`) que resuelve el sistema Ax = b por eliminación de Gauss en 𝔽₂.
-- Una interfaz gráfica (`front_lights_out.py`) que muestra **dos tableros**: izquierdo para jugar manualmente y derecho para calcular/animar la solución.
-- Un script de experimentos (`experimentos_stats.py`) para estudiar rango, nulidad y proporción de tableros resolubles.
-
----
-
-**Requisitos**
-
-- Python 3.7+ (recomendado)
 - `tkinter` (normalmente incluido en instalaciones estándar de Python en Windows/macOS)
 
 No hay dependencias externas adicionales.
