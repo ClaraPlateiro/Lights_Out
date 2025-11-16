@@ -85,17 +85,6 @@ El script imprime:
 - las coordenadas a presionar,
 - el tablero final para verificar que quedó todo en 0.
 
-También podés pasar la entrada por un here-string en PowerShell:
-
-```powershell
-@"
-3
-0 1 0
-1 1 0
-0 0 1
-"@ | py resuelve_lights_out.py
-```
-
 ---
 
 ### 3. Ejecutar experimentos masivos
